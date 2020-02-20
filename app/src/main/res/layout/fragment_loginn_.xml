@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/login_fragment_layout1"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/login"
+    tools:context=".view.fragment.loginCycle.Loginn_Fragment" >
+
+    <RelativeLayout
+        android:id="@+id/login_fragment_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/login"
+        tools:context=".view.fragment.loginCycle.Loginn_Fragment">
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+        </FrameLayout>
+
+        <ImageView
+            android:id="@+id/imageView7"
+            android:layout_width="288dp"
+            android:layout_height="384dp"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="30dp"
+            app:srcCompat="@drawable/login_logo" />
+
+        <EditText
+            android:id="@+id/login_phone"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/imageView7"
+            android:layout_marginStart="@dimen/margin_left_TV"
+            android:layout_marginEnd="@dimen/margin_right_TV"
+            android:background="@drawable/gray_button"
+            android:ems="10"
+            android:hint="  الجوال  "
+            android:inputType="phone"
+            android:padding="@dimen/padding_TV"
+            android:textColor="@color/colorAccent1" />
+
+        <EditText
+            android:id="@+id/login_password"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/login_phone"
+            android:layout_marginStart="@dimen/margin_left_TV"
+            android:layout_marginTop="@dimen/margin_top_TV"
+            android:layout_marginEnd="@dimen/margin_right_TV"
+            android:background="@drawable/gray_button"
+            android:ems="10"
+            android:hint="   كلمة المرور   "
+            android:inputType="textPassword"
+            android:padding="@dimen/padding_TV"
+            android:textColor="@color/colorAccent1"
+            android:textStyle="bold"
+
+            />
+
+        <TextView
+            android:id="@+id/login_forgetpassword"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/login_password"
+            android:layout_marginStart="@dimen/margin_left_TV"
+            android:layout_marginTop="@dimen/margin_top_TV"
+            android:text="هل نسيت كلمة السر ؟"
+            android:textColor="@color/colorPrimaryDark"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
+        <CheckBox
+            android:id="@+id/checkBox"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/login_password"
+            android:layout_marginStart="250dp"
+            android:layout_marginLeft="@dimen/margin_legt_long_tv"
+            android:layout_marginTop="@dimen/margin_top_TV"
+            android:layout_marginEnd="@dimen/margin_right_TV"
+            android:text="تذكرنى"
+            android:textColor="@color/colorPrimaryDark"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
+        <Button
+            android:id="@+id/login_register"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/colorPrimaryDarkgray"
+            android:text="لا تمتلك حساب؟ يمكنك التسجيل الان"
+            android:textColor="@color/colorAccent1"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:layout_alignParentBottom="true"
+            />
+
+        <Button
+            android:id="@+id/login_login"
+            android:layout_width="@dimen/width_btn"
+            android:layout_height="@dimen/high_btn"
+            android:layout_below="@+id/login_forgetpassword"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="@dimen/margin_top_TV"
+            android:background="@drawable/dark_gray_btn"
+            android:padding="@dimen/padding_btn"
+            android:text="دخول"
+            android:textColor="@color/colorAccent1"
+            android:textSize="20sp"
+            android:textStyle="italic|bold" />
+    </RelativeLayout>
+
+</FrameLayout>

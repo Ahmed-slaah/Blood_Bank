@@ -1,0 +1,191 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/register_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".view.fragment.loginCycle.RegisterFragment">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/login">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/login"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/register_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_gravity="center"
+                android:layout_marginTop="30dp"
+                android:padding="@dimen/padding_TV"
+                android:text="انشاء حساب جديد"
+                android:textColor="@color/colorPrimaryDark"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
+            <EditText
+                android:id="@+id/register_name"
+                style="@style/et_style1"
+                android:layout_below="@+id/register_text"
+                android:drawableStart="@drawable/ic_perm_identity_black_24dp"
+                android:hint="الاسم">
+
+            </EditText>
+
+            <EditText
+                android:id="@+id/register_mail"
+                style="@style/et_style1"
+                android:layout_below="@+id/register_name"
+                android:drawableStart="@drawable/ic_email_black_24dp"
+                android:hint="البريد الاكترونى"
+                android:inputType="textEmailAddress">
+
+            </EditText>
+
+            <EditText
+                android:id="@+id/register_confirmMail"
+                style="@style/et_style1"
+                android:layout_below="@+id/register_mail"
+                android:drawableStart="@drawable/ic_email_black_24dp"
+                android:hint="تأكيد البريد الالكترونى "
+                android:inputType="textEmailAddress">
+
+            </EditText>
+
+            <EditText
+                android:id="@+id/register_birthday"
+                style="@style/et_style1"
+                android:layout_below="@+id/register_confirmMail"
+                android:drawableStart="@drawable/ic_date_range_black_24dp"
+                android:hint="تاريخ الميلاد"
+                android:inputType="date">
+
+            </EditText>
+
+            <RelativeLayout
+                android:id="@+id/relative_spinner_blood"
+                style="@style/et_style1"
+                android:layout_below="@+id/register_birthday"
+                android:background="@drawable/gray_button"
+                android:padding="@dimen/padding_TV">
+
+                <ImageView
+                    android:id="@+id/blood"
+                    android:layout_width="30dp"
+                    android:layout_height="26dp"
+                    android:layout_centerVertical="true"
+                    android:src="@drawable/blood" />
+
+
+                <Spinner
+                    android:id="@+id/register_spinner_blood"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginStart="@dimen/_5sdp"
+                    android:layout_toEndOf="@+id/blood"
+                    />
+            </RelativeLayout>
+
+            <EditText
+                android:id="@+id/register_lastdate"
+                style="@style/et_style1"
+                android:layout_below="@+id/relative_spinner_blood"
+                android:drawableStart="@drawable/ic_date_range_black_24dp"
+                android:hint="اخر تاريخ للتبرع"
+                android:inputType="date">
+
+            </EditText>
+
+            <RelativeLayout
+                android:id="@+id/relative_spinner_government"
+                style="@style/et_style1"
+                android:layout_below="@+id/register_lastdate">
+
+                <ImageView
+                    android:id="@+id/home"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:src="@drawable/ic_home_red_24dp" />
+
+                <Spinner
+                    android:id="@+id/register_spinner_government"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginStart="@dimen/_5sdp"
+                    android:layout_toEndOf="@+id/home" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/relative_spinner_city"
+                style="@style/et_style1">
+
+                <ImageView
+                    android:id="@+id/home1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:src="@drawable/ic_home_red_24dp" />
+
+                <Spinner
+                    android:id="@+id/register_spinner_city"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginStart="@dimen/_5sdp"
+                    android:layout_toEndOf="@+id/home1" />
+            </RelativeLayout>
+
+            <EditText
+                android:id="@+id/register_phone"
+                style="@style/et_style1"
+                android:layout_below="@+id/relative_spinner_government"
+                android:drawableStart="@drawable/ic_phone_black_24dp"
+                android:hint="رقم الهاتف"
+                android:inputType="number">
+
+            </EditText>
+
+            <EditText
+                android:id="@+id/register_password"
+                style="@style/et_style1"
+                android:layout_below="@+id/register_phone"
+                android:drawableStart="@drawable/ic_lock_black_24dp"
+                android:hint="كلمة المرور">
+
+            </EditText>
+
+            <EditText
+                android:id="@+id/register_password_confirm"
+                style="@style/et_style1"
+                android:layout_below="@+id/register_password"
+                android:drawableStart="@drawable/ic_lock_black_24dp"
+                android:hint="تأكيد كلمة المرور">
+
+            </EditText>
+
+            <Button
+                android:id="@+id/register_register"
+                style="@style/et_style2"
+                android:layout_below="@id/register_password_confirm"
+                android:layout_centerHorizontal="true"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="@dimen/margin_top_TV"
+                android:background="@drawable/dark_gray_btn"
+                android:text="تسجيل"
+                android:textColor="@color/colorPrimary"
+                android:textSize="20sp"
+                android:textStyle="bold">
+
+            </Button>
+
+
+        </LinearLayout>
+    </ScrollView>
+</FrameLayout>

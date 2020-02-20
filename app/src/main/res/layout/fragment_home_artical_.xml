@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".view.fragment.homeCycle.Home_artical_Fragment"
+    android:background="@color/colorPrimaryDark">
+
+    <Spinner
+        android:id="@+id/searchview"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginStart="@dimen/margin_left_TV"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="@dimen/margin_right_TV"
+        android:background="@drawable/dark_gray_btn" />
+
+    <Button
+        android:id="@+id/button"
+        android:layout_width="42dp"
+        android:layout_height="38dp"
+        android:layout_marginStart="25sp"
+        android:layout_marginTop="15dp"
+        android:background="@drawable/ic_search_black_24dp" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recycleartical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/imageView10"
+        android:layout_below="@+id/searchview"
+        android:layout_marginTop="10dp"
+        />
+
+    <ImageView
+        android:id="@+id/imageView10"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_alignParentEnd="true"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="16dp"
+        android:layout_alignParentBottom="true"
+        android:background="@drawable/eclipse_add"
+        android:src="@drawable/ic_add_black_24dp"
+        android:padding="8dp"
+        />
+
+</RelativeLayout>

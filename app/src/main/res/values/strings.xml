@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">Blood Bank</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="get_blood_type">فصيلة الدم</string>
+    <string name="get_government">المحافظه</string>
+    <string name="get_cityt">المدينه</string>
+
+</resources>

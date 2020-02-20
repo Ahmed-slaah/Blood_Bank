@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="margin_right_TV">30dp</dimen>
+    <dimen name="margin_left_TV">30dp</dimen>
+    <dimen name="margin_legt_long_tv">295dp</dimen>
+    <dimen name="padding_TV">10dp</dimen>
+    <dimen name="margin_top_TV">25dp</dimen>
+    <dimen name="margin_top_TV1">15dp</dimen>
+    <dimen name="padding_btn">5dp</dimen>
+    <dimen name="width_btn">120dp</dimen>
+    <dimen name="high_btn">40dp</dimen>
+
+
+
+</resources>

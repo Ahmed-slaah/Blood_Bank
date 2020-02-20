@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".view.fragment.homeCycle.EdiFragment">
+
+
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white">
+
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/white">
+
+            <EditText
+                android:id="@+id/edit_name"
+                style="@style/et_style1"
+                android:drawableStart="@drawable/ic_perm_identity_black_24dp">
+
+            </EditText>
+
+            <EditText
+                android:id="@+id/edit_mail"
+                style="@style/et_style1"
+                android:layout_below="@+id/edit_name"
+                android:inputType="textEmailAddress"
+                android:drawableStart="@drawable/ic_email_black_24dp">
+
+            </EditText>
+
+            <EditText
+                android:id="@+id/edit_confirmMail"
+                style="@style/et_style1"
+                android:layout_below="@+id/edit_mail"
+                android:inputType="textEmailAddress"
+                android:drawableStart="@drawable/ic_email_black_24dp">
+
+            </EditText>
+
+            <EditText
+                android:id="@+id/edit_birthday"
+                style="@style/et_style1"
+                android:layout_below="@+id/edit_confirmMail"
+                android:drawableStart="@drawable/ic_date_range_black_24dp"
+                android:inputType="date">
+
+            </EditText>
+
+            <RelativeLayout
+                android:id="@+id/relative_spinner_blood"
+                style="@style/et_style1"
+                android:layout_below="@+id/edit_birthday"
+                 >
+                <ImageView
+                    android:layout_width="30dp"
+                    android:layout_height="26dp"
+                    android:layout_centerVertical="true"
+                    android:src="@drawable/blood"
+                    android:id="@+id/blood"/>
+
+
+                <Spinner
+                    android:id="@+id/edit_spinner_blood"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_toEndOf="@+id/blood"
+                    android:layout_marginStart="@dimen/_5sdp"/>
+            </RelativeLayout>
+
+
+            <EditText
+                android:id="@+id/edit_lastdate"
+                style="@style/et_style1"
+                android:layout_below="@+id/relative_spinner_blood"
+                android:drawableStart="@drawable/ic_date_range_black_24dp"
+                android:inputType="date">
+
+            </EditText>
+
+            <RelativeLayout
+                android:id="@+id/relative_spinner_government"
+                android:layout_below="@+id/edit_lastdate"
+                style="@style/et_style1"
+                >
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/ic_home_red_24dp"
+                    android:layout_centerVertical="true"
+                    android:id="@+id/home"
+                    />
+
+                <Spinner
+                    android:id="@+id/edit_spinner_government"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_toEndOf="@+id/home"
+                    android:layout_marginStart="@dimen/_5sdp"/>
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/edit_spinner_city"
+                style="@style/et_style1"
+                android:layout_below="@+id/relative_spinner_government"
+                 >
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/ic_home_red_24dp"
+                    android:layout_centerVertical="true"
+                    android:id="@+id/home1"
+                    />
+
+                <Spinner
+                    android:id="@+id/spinner3"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+            </RelativeLayout>
+
+            <EditText
+                android:id="@+id/edit_phone"
+                style="@style/et_style1"
+                android:layout_below="@+id/edit_spinner_city"
+                android:inputType="number"
+                android:drawableStart="@drawable/ic_phone_black_24dp">
+
+            </EditText>
+
+            <EditText
+                android:id="@+id/edit_password"
+                style="@style/et_style1"
+                android:layout_below="@+id/edit_phone"
+                android:drawableStart="@drawable/ic_lock_black_24dp">
+
+            </EditText>
+
+            <EditText
+                android:id="@+id/edit_password_confirm"
+                style="@style/et_style1"
+                android:layout_below="@+id/edit_password"
+                android:drawableStart="@drawable/ic_lock_black_24dp">
+
+            </EditText>
+
+            <Button
+                android:id="@+id/edit_edit"
+                android:layout_width="@dimen/width_btn"
+                android:layout_height="@dimen/high_btn"
+                android:layout_below="@id/edit_password_confirm"
+                android:layout_centerHorizontal="true"
+                android:layout_marginStart="@dimen/margin_left_TV"
+                android:layout_marginTop="@dimen/margin_top_TV"
+                android:layout_marginEnd="@dimen/margin_right_TV"
+                android:background="@drawable/dark_red_btn"
+                android:text="تعديل"
+                android:textColor="@color/white"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                android:layout_alignParentBottom="true"
+                >
+
+            </Button>
+
+
+        </RelativeLayout>
+    </ScrollView>
+</FrameLayout>

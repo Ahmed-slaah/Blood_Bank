@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".view.fragment.homeCycle.AboutFragment">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/textView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="5dp"
+                android:padding="15dp"
+                android:text="الجوال"
+                android:textColor="@color/purple"
+                android:textSize="25sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/textView2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="5dp"
+                android:drawableEnd="@drawable/ic_local_phone_orange"
+                android:padding="15dp"
+                android:text="01006383877"
+                android:textAlignment="textEnd"
+                android:textColor="@color/colorAccent1"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/textView3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="5dp"
+                android:padding="15dp"
+                android:text="البريد الالكترونى"
+                android:textColor="@color/purple"
+                android:textSize="25sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/textView4"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="5dp"
+                android:drawableEnd="@drawable/ic_email_orange"
+                android:padding="15dp"
+                android:text="mazenamwer47@yahoo.com"
+                android:textAlignment="textEnd"
+                android:textColor="@color/colorAccent1"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="200dp">
+
+                <ImageView
+                    android:id="@+id/youtupe"
+                    android:layout_width="wrap_content"
+                    android:layout_height="60dp"
+                    android:layout_below="@+id/instaa"
+                    android:layout_marginStart="210dp"
+                    android:layout_marginTop="-5dp"
+                    android:layout_marginEnd="5dp"
+                    android:layout_marginBottom="57dp"
+                    android:src="@drawable/youtupe" />
+
+                <ImageView
+                    android:id="@+id/twitter"
+                    android:layout_width="195dp"
+                    android:layout_height="82dp"
+                    android:src="@drawable/twitter"
+                    android:layout_below="@+id/facebook"
+                    android:layout_marginTop="-16dp"
+                    android:layout_marginStart="5dp"
+                    />
+
+                <ImageView
+                    android:id="@+id/facebook"
+                    android:layout_width="196dp"
+                    android:layout_height="60dp"
+                    android:layout_marginStart="5dp"
+
+                    android:src="@drawable/facebook" />
+
+                <ImageView
+                    android:id="@+id/instaa"
+                    android:layout_width="wrap_content"
+                    android:layout_height="60dp"
+                    android:layout_marginStart="200dp"
+                    android:layout_marginEnd="5dp"
+                    android:src="@drawable/insta"
+                    android:layout_marginTop="5dp"/>
+            </RelativeLayout>
+
+        </LinearLayout>
+    </RelativeLayout>
+
+</FrameLayout>
