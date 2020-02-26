@@ -1,11 +1,10 @@
 
-package com.example.bloodbank.data.model.login;
+package com.example.bloodbank.data.model.auth;
 
-import com.example.bloodbank.data.model.register.Client;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-public class LoginData {
+public class AuthData {
 
     @SerializedName("api_token")
     @Expose

@@ -26,6 +26,19 @@
         <item name="android:textStyle">bold</item>
     </style>
 
+    <style name="et_style5">
+        <item name="android:layout_height">@dimen/_30sdp</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_marginStart">@dimen/_1sdp</item>
+        <item name="android:layout_marginEnd">@dimen/_2sdp</item>
+        <item name="android:padding">@dimen/_7sdp</item>
+        <item name="android:textColor">@color/colorPrimary</item>
+        <item name="android:textColorHint">@color/colorPrimary</item>
+        <item name="android:background">@drawable/gray_button</item>>
+        <item name="android:textSize">@dimen/_14ssp</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
     <style name="et_style2">
         <item name="android:layout_height">@dimen/_40sdp</item>
         <item name="android:layout_width">@dimen/_110sdp</item>
@@ -38,6 +51,22 @@
         <item name="android:textSize">@dimen/_14ssp</item>
         <item name="android:textStyle">bold</item>
     </style>
+
+    <style name="donation_style">
+
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginTop">@dimen/_6sdp</item>
+        <item name="android:layout_marginStart">70dp</item>
+        <item name="android:layout_marginEnd">30dp</item>
+        <item name="android:maxLines">1</item>
+        <item name="android:padding">4dp</item>
+        <item name="android:textSize">@dimen/_15ssp</item>
+        <item name="android:textColor">@color/purple</item>
+        <item name="android:textStyle">bold</item>
+
+    </style>
+
 
 
 </resources>

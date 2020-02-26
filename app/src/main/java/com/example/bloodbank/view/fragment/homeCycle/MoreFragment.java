@@ -12,7 +12,6 @@ import androidx.fragment.app.Fragment;
 
 import com.example.bloodbank.R;
 import com.example.bloodbank.view.activity.LoginActivity;
-import com.example.bloodbank.view.fragment.loginCycle.Loginn_Fragment;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;

@@ -27,6 +27,7 @@ public class spinnerAdapter extends BaseAdapter {
 
     public void setData(List<CityData> cityData, String hint) {
         cityData.add(0, new CityData(0, hint));
+        this.cityData = new ArrayList<>();
         this.cityData = cityData;
     }
 

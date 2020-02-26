@@ -1,10 +1,10 @@
 
-package com.example.bloodbank.data.model.login;
+package com.example.bloodbank.data.model.auth;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-public class Login {
+public class Auth {
 
     @SerializedName("status")
     @Expose
@@ -12,9 +12,9 @@ public class Login {
     @SerializedName("msg")
     @Expose
     private String msg;
-    @SerializedName("loginData")
+    @SerializedName("data")
     @Expose
-    private LoginData loginData;
+    private AuthData data;
 
     public Integer getStatus() {
         return status;
@@ -32,12 +32,12 @@ public class Login {
         this.msg = msg;
     }
 
-    public LoginData getLoginData() {
-        return loginData;
+    public AuthData getData() {
+        return data;
     }
 
-    public void setLoginData(LoginData loginData) {
-        this.loginData = loginData;
+    public void setData(AuthData data) {
+        this.data = data;
     }
 
 }

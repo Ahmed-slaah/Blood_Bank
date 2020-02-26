@@ -36,18 +36,9 @@
             </EditText>
 
             <EditText
-                android:id="@+id/edit_confirmMail"
-                style="@style/et_style1"
-                android:layout_below="@+id/edit_mail"
-                android:inputType="textEmailAddress"
-                android:drawableStart="@drawable/ic_email_black_24dp">
-
-            </EditText>
-
-            <EditText
                 android:id="@+id/edit_birthday"
                 style="@style/et_style1"
-                android:layout_below="@+id/edit_confirmMail"
+                android:layout_below="@+id/edit_mail"
                 android:drawableStart="@drawable/ic_date_range_black_24dp"
                 android:inputType="date">
 

@@ -2,6 +2,7 @@
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/newpassword"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".view.fragment.loginCycle.ChangePhoneFragment">
@@ -17,66 +18,37 @@
             android:layout_height="384dp"
             android:layout_centerHorizontal="true"
             android:src="@drawable/login_logo" />
+
         <EditText
             android:id="@+id/code"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@drawable/gray_button"
-            android:padding="@dimen/padding_TV"
+            style="@style/et_style1"
             android:layout_below="@id/imageView9"
-            android:layout_marginStart="@dimen/margin_left_TV"
-            android:layout_marginEnd="@dimen/margin_right_TV"
-            android:textSize="20sp"
-            android:hint="كود التحقق"
-            android:textColorHint="@color/colorPrimary"
-            android:textStyle="bold"
-            android:textColor="@color/colorPrimary">
-        </EditText>
+            android:hint="كود التحقق"> </EditText>
+
         <EditText
             android:id="@+id/new_password"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@drawable/gray_button"
-            android:padding="@dimen/padding_TV"
+            style="@style/et_style1"
             android:layout_below="@id/code"
-            android:layout_marginTop="@dimen/margin_top_TV"
-            android:layout_marginStart="@dimen/margin_left_TV"
-            android:layout_marginEnd="@dimen/margin_right_TV"
-            android:textSize="20sp"
-            android:hint="كلمة المرور الجديده"
-            android:textColorHint="@color/colorPrimary"
-            android:textStyle="bold"
-            android:textColor="@color/colorPrimary">
-        </EditText>
+            android:hint="كلمة المرور الجديده"> </EditText>
 
         <EditText
-        android:id="@+id/change_confirm_code"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@drawable/gray_button"
-        android:padding="@dimen/padding_TV"
-        android:layout_below="@id/new_password"
-            android:layout_marginTop="@dimen/margin_top_TV"
-        android:layout_marginStart="@dimen/margin_left_TV"
-        android:layout_marginEnd="@dimen/margin_right_TV"
-        android:textSize="20sp"
-        android:hint="تأكيد كلمة المرور الجديده"
-        android:textColorHint="@color/colorPrimary"
-        android:textStyle="bold"
-        android:textColor="@color/colorPrimary">
-    </EditText>
+            android:id="@+id/change_confirm_code"
+            style="@style/et_style1"
+            android:layout_below="@id/new_password"
+            android:hint="تأكيد كلمة المرور الجديده"> </EditText>
 
         <Button
+            android:id="@+id/change"
             android:layout_width="@dimen/width_btn"
             android:layout_height="@dimen/high_btn"
-            android:layout_centerHorizontal="true"
-            android:background="@drawable/dark_gray_btn"
             android:layout_below="@id/change_confirm_code"
+            android:layout_centerHorizontal="true"
             android:layout_marginTop="@dimen/margin_top_TV"
+            android:background="@drawable/dark_gray_btn"
             android:text="تغيير"
             android:textColor="@color/colorPrimary"
-            android:textStyle="bold"
-            android:textSize="20sp">
+            android:textSize="@dimen/_15ssp"
+            android:textStyle="bold">
 
         </Button>
     </RelativeLayout>

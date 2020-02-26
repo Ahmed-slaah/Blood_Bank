@@ -1,7 +1,6 @@
 package com.example.bloodbank.view.fragment.loginCycle;
 
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -15,29 +14,24 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 
 import com.example.bloodbank.R;
 import com.example.bloodbank.adapter.spinnerAdapter;
-import com.example.bloodbank.data.model.login.Login;
-import com.example.bloodbank.data.model.register.Auth;
-import com.example.bloodbank.helper.SharedPreferencesManger;
-import com.example.bloodbank.view.activity.HomeCycleActivity;
-import com.example.bloodbank.view.fragment.homeCycle.Home_artical_Fragment;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
-import retrofit2.Call;
-import retrofit2.Callback;
-import retrofit2.Response;
 
 import static com.example.bloodbank.data.api.RetrofitClient.getClient;
+import static com.example.bloodbank.helper.GeneralRequestData.AUTH;
+import static com.example.bloodbank.helper.GeneralRequestData.onAuth;
 
 /**
  * A simple {@link Fragment} subclass.
  */
-public class Loginn_Fragment extends Fragment {
+public class LoginFragment extends Fragment {
 
 
     @BindView(R.id.imageView7)
@@ -71,11 +65,7 @@ public class Loginn_Fragment extends Fragment {
     private String bloodtype;
     private spinnerAdapter bloodtypespinner, gavernmenttypespinner, cityspinner;
     private String governmentid;
-    public Loginn_Fragment() {
-        // Required empty public constructor
-    }
-
-
+    private boolean saved;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -105,65 +95,31 @@ public class Loginn_Fragment extends Fragment {
 
                 break;
         }
-        if (fragment != null)
-        {
+        if (fragment != null) {
             getFragmentManager().beginTransaction().replace(R.id.login_layout, fragment).addToBackStack(null).commit();
         }
     }
 
-    private void getLogin() {
-
-            getClient().getlogin(phone,pass).enqueue(new Callback<Login>() {
-                @Override
-
-                public void onResponse(Call<Login> call, Response<Login> response) {
-                    try {
-                        if (response.body().getStatus() == 1) {
-
-                        SharedPreferencesManger.SaveData(getActivity(),SharedPreferencesManger.USER_DATA , response.body().getLoginData());
-                        SharedPreferencesManger.SaveData(getActivity(),SharedPreferencesManger.REMMBER_ME , true);
-
-                            Intent i = new Intent(getContext(),HomeCycleActivity.class);
-                            startActivity(i);
-                        }else {
-                            if (!loginPhone.getText().toString().equals(phone)){
-                                Toast.makeText(getContext(), "رقم الهاتف خاطىء ,, تأكد منه و اعد المحاوله", Toast.LENGTH_SHORT).show();
-                            }if (!loginPassword.getText().toString().equals(pass)){
-                                Toast.makeText(getContext(), "رمز الدخول خاطىء,, تأكد منه و اعد المحاوله", Toast.LENGTH_SHORT).show();
-                            }
-                        }
-                    } catch (Exception e) {
-                        Toast.makeText(getContext(), ""+e+"", Toast.LENGTH_SHORT).show();
-                    }
-                }
-
-                @Override
-                public void onFailure(Call<Login> call, Throwable t) {
-                    Toast.makeText(getContext(), ""+t+"", Toast.LENGTH_SHORT).show();
-
-
-                }
-            });
-
-        }
-
-    private boolean  loginValidation() {
-
-        if (!loginPhone.getText().toString().isEmpty()){
-            if (!loginPassword.getText().toString().isEmpty()){
+    private boolean loginValidation() {
+        phone = loginPhone.getText().toString();
+        pass = loginPassword.getText().toString();
+        if (!loginPhone.getText().toString().isEmpty()) {
+            if (!loginPassword.getText().toString().isEmpty()) {
                 return true;
-            }else {
+            } else {
                 Toast.makeText(getContext(), "تأكد من ملئ خانة كلمة المرور", Toast.LENGTH_SHORT).show();
                 return false;
             }
-        }else {
+        } else {
             Toast.makeText(getContext(), "تأكد من ملئ خانة رقم الجوال", Toast.LENGTH_SHORT).show();
             return false;
         }
 
     }
 
-
+    private void getLogin() {
+        onAuth((AppCompatActivity) getActivity(), getClient().getlogin(phone, pass), checkBox.isChecked(), AUTH);
+    }
 
 }
 

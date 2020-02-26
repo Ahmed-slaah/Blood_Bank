@@ -11,6 +11,12 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
+        <FrameLayout
+            android:id="@+id/homecyclelayout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_above="@id/btn_nav"/>
+
         <com.google.android.material.bottomnavigation.BottomNavigationView
             android:id="@+id/btn_nav"
             android:layout_width="match_parent"
@@ -20,15 +26,6 @@
             app:menu="@menu/home_button_nav"
             app:itemTextColor="@color/colorPrimaryDark"
             app:itemIconTint="@color/colorPrimaryDark"/>
-
-        <FrameLayout
-            android:id="@+id/homecyclelayout"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_above="@id/btn_nav">
-
-
-        </FrameLayout>
 
     </RelativeLayout>
 

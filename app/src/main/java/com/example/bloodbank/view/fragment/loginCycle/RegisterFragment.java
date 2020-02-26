@@ -8,29 +8,27 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.FrameLayout;
+import android.widget.ImageView;
+import android.widget.RelativeLayout;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 
 import com.example.bloodbank.R;
-import com.example.bloodbank.helper.SharedPreferencesManger;
 import com.example.bloodbank.adapter.spinnerAdapter;
-import com.example.bloodbank.data.model.register.Auth;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
-import retrofit2.Call;
-import retrofit2.Callback;
-import retrofit2.Response;
-
-import static com.example.bloodbank.helper.SpinnerRequest.getspinnerData;
 import static com.example.bloodbank.data.api.RetrofitClient.getClient;
+import static com.example.bloodbank.helper.GeneralRequestData.AUTH;
+import static com.example.bloodbank.helper.GeneralRequestData.getspinnerData;
+import static com.example.bloodbank.helper.GeneralRequestData.onAuth;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -60,16 +58,25 @@ public class RegisterFragment extends Fragment {
     TextView registerPassword;
     @BindView(R.id.register_password_confirm)
     TextView registerPasswordConfirm;
-    @BindView(R.id.register_confirmMail)
-    EditText registerConfirmMail;
     @BindView(R.id.register_register)
     Button registerRegister;
     @BindView(R.id.register_layout)
     FrameLayout registerLayout;
+    @BindView(R.id.blood)
+    ImageView blood;
+    @BindView(R.id.relative_spinner_blood)
+    RelativeLayout relativeSpinnerBlood;
+    @BindView(R.id.home)
+    ImageView home;
+    @BindView(R.id.relative_spinner_government)
+    RelativeLayout relativeSpinnerGovernment;
+    @BindView(R.id.home1)
+    ImageView home1;
+    @BindView(R.id.relative_spinner_city)
+    RelativeLayout relativeSpinnerCity;
     private String name;
     private String phone;
     private String Email;
-    private String EmailConf;
     private String pass;
     private String Passconf;
     private String birthdate;
@@ -79,30 +86,18 @@ public class RegisterFragment extends Fragment {
     private spinnerAdapter bloodtypespinner, gavernmenttypespinner, cityspinner;
     private String governmentid;
 
-
-
-
     public RegisterFragment() {
         // Required empty public constructor
     }
-
     ArrayAdapter<String> adapter;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_register, container, false);
         ButterKnife.bind(this, view);
         setSpinner();
-        name = registerName.getText().toString();
-        phone = registerPhone.getText().toString();
-        Email = registerMail.getText().toString();
-        EmailConf = registerMail.getText().toString();
-        pass = registerPassword.getText().toString();
-        Passconf = registerConfirmMail.getText().toString();
-        birthdate = registerBirthday.getText().toString();
-        donationdate = registerLastdate.getText().toString();
+
 
         return view;
     }
@@ -132,73 +127,56 @@ public class RegisterFragment extends Fragment {
         };
         getspinnerData(getClient().getGovernment(), registerSpinnerGovernment, gavernmenttypespinner,
                 0, getString(R.string.get_government), onGavernmentItemSelected);
-
-
     }
-
 
     @OnClick(R.id.register_register)
     public void onViewClicked() {
         if (Validation()) {
             getregister();
         }
-        }
-
-
+    }
 
     private boolean Validation() {
 
-        if (pass.equals(Passconf)) {
-            if ((Email.equals(EmailConf))) {
-                if ((!name.isEmpty() && !phone.isEmpty() && !pass.isEmpty() && !Email.isEmpty())) {
-                    return true;
-                } else {
-                    Toast.makeText(getContext(), "تاكد من ملئ كل الخانات", Toast.LENGTH_SHORT).show();
-                    return false;
-                }
-            } else {
-                Toast.makeText(getContext(), "تاكد من ان خانة البريد الالكترونى تساوى لخانة التاكيد لها", Toast.LENGTH_SHORT).show();
-                return false;
-            }
-        } else {
+        name = registerName.getText().toString();
+        phone = registerPhone.getText().toString();
+        Email = registerMail.getText().toString();
+        pass = registerPassword.getText().toString();
+        Passconf = registerPasswordConfirm.getText().toString();
+        birthdate = registerBirthday.getText().toString();
+        donationdate = registerLastdate.getText().toString();
+
+        boolean valid = true;
+
+        if (name.isEmpty()) {
+            Toast.makeText(getContext(), "تاكد من ملئ خانة الاسم", Toast.LENGTH_SHORT).show();
+            valid = false;
+        } else if (Email.isEmpty()) {
+            Toast.makeText(getContext(), "تاكد من ملئ خانة الايميل", Toast.LENGTH_SHORT).show();
+            valid = false;
+        } else if (birthdate.isEmpty()) {
+            Toast.makeText(getContext(), "تاكد من ملئ خانة تاريخ الميلاد", Toast.LENGTH_SHORT).show();
+            valid = false;
+        } else if (phone.isEmpty()) {
+            Toast.makeText(getContext(), "تاكد من ملئ خانة الجوال", Toast.LENGTH_SHORT).show();
+            valid = false;
+        } else if (pass.isEmpty()) {
+            Toast.makeText(getContext(), "تاكد من ملئ رقم المرور", Toast.LENGTH_SHORT).show();
+            valid = false;
+        } else if (Passconf.isEmpty()) {
+            Toast.makeText(getContext(), "تاكد من ملئ تأكيد رقم المرور", Toast.LENGTH_SHORT).show();
+            valid = false;
+        } else if (!Passconf.equals(pass)) {
             Toast.makeText(getContext(), "تاكد من ان خانة كلمة المرور تساوى خانة التاكيد لها", Toast.LENGTH_SHORT).show();
-            return false;
+            valid = false;
         }
+        return valid;
     }
 
     private void getregister() {
-
-        getClient().getRegister(name, Email, birthdate, city, phone, donationdate, pass, Passconf, bloodtype).enqueue(new Callback<Auth>() {
-            @Override
-
-            public void onResponse(Call<Auth> call, Response<Auth> response) {
-                try {
-                    if (response.body().getStatus() == 1) {
-
-                        SharedPreferencesManger.SaveData(getActivity(),SharedPreferencesManger.USER_DATA , response.body().getData());
-                        SharedPreferencesManger.SaveData(getActivity(),SharedPreferencesManger.REMMBER_ME , true);
-
-                        Fragment fragment = new Loginn_Fragment();
-                        getFragmentManager().beginTransaction().replace(R.id.register_layout, fragment).addToBackStack(null).commit();
-                    }else {
-                        Toast.makeText(getContext(), ""+response.body().getMsg()+"", Toast.LENGTH_SHORT).show();
-                    }
-                } catch (Exception e) {
-                    Toast.makeText(getContext(), ""+e+"", Toast.LENGTH_SHORT).show();
-
-                }
-            }
-
-            @Override
-            public void onFailure(Call<Auth> call, Throwable t) {
-                Toast.makeText(getContext(), ""+t+"", Toast.LENGTH_SHORT).show();
-
-
-            }
-        });
-
+        onAuth((AppCompatActivity) getActivity(), getClient().getRegister(name, Email, birthdate, cityspinner.selected, phone, donationdate, pass, Passconf, bloodtypespinner.selected)
+                , true, AUTH);
     }
-
 }
 
 

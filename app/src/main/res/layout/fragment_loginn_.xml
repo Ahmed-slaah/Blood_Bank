@@ -6,14 +6,14 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/login"
-    tools:context=".view.fragment.loginCycle.Loginn_Fragment" >
+    tools:context=".view.fragment.loginCycle.LoginFragment" >
 
     <RelativeLayout
         android:id="@+id/login_fragment_layout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@drawable/login"
-        tools:context=".view.fragment.loginCycle.Loginn_Fragment">
+        tools:context=".view.fragment.loginCycle.LoginFragment">
 
         <FrameLayout
             android:layout_width="match_parent"
@@ -26,7 +26,7 @@
             android:layout_width="288dp"
             android:layout_height="384dp"
             android:layout_centerHorizontal="true"
-            android:layout_marginTop="30dp"
+            android:layout_marginTop="20dp"
             app:srcCompat="@drawable/login_logo" />
 
         <EditText
@@ -78,10 +78,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@+id/login_password"
-            android:layout_marginStart="250dp"
-            android:layout_marginLeft="@dimen/margin_legt_long_tv"
+            android:layout_toEndOf="@+id/login_forgetpassword"
+            android:layout_marginStart="15dp"
             android:layout_marginTop="@dimen/margin_top_TV"
-            android:layout_marginEnd="@dimen/margin_right_TV"
             android:text="تذكرنى"
             android:textColor="@color/colorPrimaryDark"
             android:textSize="20sp"

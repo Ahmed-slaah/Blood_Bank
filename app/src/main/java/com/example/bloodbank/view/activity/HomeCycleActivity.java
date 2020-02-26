@@ -43,7 +43,6 @@ public class HomeCycleActivity extends AppCompatActivity {
         transaction.replace(R.id.homecyclelayout, homeFragment);
         transaction.commit();
 
-
         btnNav.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
@@ -79,8 +78,6 @@ public class HomeCycleActivity extends AppCompatActivity {
                 return true;
             }
         });
-
-//
 
     }
 

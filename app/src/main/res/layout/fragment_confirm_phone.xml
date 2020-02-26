@@ -2,6 +2,7 @@
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/confirm_layout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".view.fragment.loginCycle.ConfirmPhoneFragment">
@@ -17,37 +18,28 @@
             android:layout_width="288dp"
             android:layout_height="384dp"
 
-            android:src="@drawable/login_logo"
             android:layout_centerHorizontal="true"
-            />
+            android:src="@drawable/login_logo" />
 
         <EditText
             android:id="@+id/Confirm_Confirm"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            style="@style/et_style1"
             android:layout_below="@+id/imageView8"
-            android:padding="@dimen/padding_TV"
-            android:layout_marginEnd="@dimen/margin_right_TV"
-            android:layout_marginStart="@dimen/margin_left_TV"
-            android:background="@drawable/gray_button"
             android:hint="الجوال"
-            android:textColorHint="@color/colorPrimary"
-            android:textSize="20sp"
-            android:textColor="@color/colorPrimary"
-            android:textStyle="bold"
-            android:inputType="number">
-        </EditText>
+            android:inputType="number"></EditText>
+
         <Button
+            android:id="@+id/send"
             android:layout_width="@dimen/width_btn"
             android:layout_height="@dimen/high_btn"
+            android:layout_below="@id/Confirm_Confirm"
             android:layout_centerHorizontal="true"
+            android:layout_marginTop="@dimen/margin_top_TV"
             android:background="@drawable/dark_gray_btn"
             android:text="ارسال"
             android:textColor="@color/colorPrimary"
-            android:textStyle="bold"
-            android:textSize="20sp"
-            android:layout_below="@id/Confirm_Confirm"
-            android:layout_marginTop="@dimen/margin_top_TV">
+            android:textSize="@dimen/_15ssp"
+            android:textStyle="bold">
 
         </Button>
     </RelativeLayout>

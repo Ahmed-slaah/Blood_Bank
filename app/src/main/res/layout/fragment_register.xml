@@ -50,16 +50,6 @@
             </EditText>
 
             <EditText
-                android:id="@+id/register_confirmMail"
-                style="@style/et_style1"
-                android:layout_below="@+id/register_mail"
-                android:drawableStart="@drawable/ic_email_black_24dp"
-                android:hint="تأكيد البريد الالكترونى "
-                android:inputType="textEmailAddress">
-
-            </EditText>
-
-            <EditText
                 android:id="@+id/register_birthday"
                 style="@style/et_style1"
                 android:layout_below="@+id/register_confirmMail"

@@ -4,4 +4,49 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".view.fragment.homeCycle.Home_Donation_Fragment"
-    android:background="@color/colorPrimaryDarkgray"/>
+    >
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <LinearLayout
+            android:id="@+id/linear1"
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:layout_marginStart="@dimen/_1sdp"
+            android:layout_marginEnd="@dimen/_1sdp"
+            android:orientation="horizontal">
+
+            <RelativeLayout
+                style="@style/et_style5"
+                android:layout_width="200dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center">
+
+                <Spinner
+                    android:id="@+id/government_spinner"
+                    android:layout_width="200dp"
+                    android:layout_height="wrap_content" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                style="@style/et_style5"
+                android:layout_width="200dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                >
+                <Spinner
+                    android:id="@+id/blood_type_spinner"
+                    android:layout_width="200dp"
+                    android:layout_height="wrap_content" />
+            </RelativeLayout>
+
+        </LinearLayout>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recycler_donation_request"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@+id/linear1"/>
+    </RelativeLayout>
+</FrameLayout>

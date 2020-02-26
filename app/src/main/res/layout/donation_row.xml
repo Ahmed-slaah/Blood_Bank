@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <RelativeLayout
+        android:layout_marginTop="@dimen/_7sdp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/donation_data"
+            android:orientation="vertical"
+            android:layout_marginStart="@dimen/_50sdp"
+            android:layout_marginEnd="@dimen/_5sdp">
+
+            <TextView
+                android:id="@+id/patient_name"
+                style="@style/donation_style"
+                />
+            <TextView
+                android:id="@+id/hosbital_name"
+                style="@style/donation_style"
+                />
+            <TextView
+                android:id="@+id/city"
+                style="@style/donation_style"
+                android:layout_marginBottom="@dimen/_5sdp"
+                />
+        </LinearLayout>
+
+        <TextView
+
+            android:id="@+id/blood_type_text"
+            android:layout_width="@dimen/_100sdp"
+            android:layout_height="@dimen/_100sdp"
+            android:background="@drawable/donation_blood"
+            android:gravity="center"
+            android:textColor="@color/white"
+            android:textSize="@dimen/_40ssp"
+            android:textStyle="bold"/>
+
+    </RelativeLayout>
+</LinearLayout>

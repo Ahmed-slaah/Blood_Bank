@@ -1,10 +1,10 @@
 
-package com.example.bloodbank.data.model.register;
+package com.example.bloodbank.data.model.posts;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-public class Auth {
+public class Posts {
 
     @SerializedName("status")
     @Expose
@@ -12,9 +12,9 @@ public class Auth {
     @SerializedName("msg")
     @Expose
     private String msg;
-    @SerializedName("data")
+    @SerializedName("postsPagination")
     @Expose
-    private AuthData data;
+    private PostsPagination postsPagination;
 
     public Integer getStatus() {
         return status;
@@ -32,12 +32,12 @@ public class Auth {
         this.msg = msg;
     }
 
-    public AuthData getData() {
-        return data;
+    public PostsPagination getPostsPagination() {
+        return postsPagination;
     }
 
-    public void setData(AuthData data) {
-        this.data = data;
+    public void setPostsPagination(PostsPagination postsPagination) {
+        this.postsPagination = postsPagination;
     }
 
 }
