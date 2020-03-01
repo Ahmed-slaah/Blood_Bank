@@ -2,19 +2,14 @@ package com.example.bloodbank;
 
 public class articleData {
     private String title;
-
-    private int backImg;
-    private int likeImg;
-    private int dislikeImg ;
+    private boolean like;
 
     public articleData() {
     }
 
-    public articleData(String title, int backImg, int likeImg, int dislikeImg) {
+    public articleData(String title, boolean like) {
         this.title = title;
-        this.backImg = backImg;
-        this.likeImg = likeImg;
-        this.dislikeImg = dislikeImg;
+        this.like = like;
     }
 
     public String getTitle() {
@@ -25,27 +20,11 @@ public class articleData {
         this.title = title;
     }
 
-    public int getBackImg() {
-        return backImg;
+    public boolean isLike() {
+        return like;
     }
 
-    public void setBackImg(int backImg) {
-        this.backImg = backImg;
-    }
-
-    public int getLikeImg() {
-        return likeImg;
-    }
-
-    public void setLikeImg(int likeImg) {
-        this.likeImg = likeImg;
-    }
-
-    public int getDislikeImg() {
-        return dislikeImg;
-    }
-
-    public void setDislikeImg(int dislikeImg) {
-        this.dislikeImg = dislikeImg;
+    public void setLike(boolean like) {
+        this.like = like;
     }
 }

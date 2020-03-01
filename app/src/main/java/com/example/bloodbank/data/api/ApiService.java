@@ -47,7 +47,7 @@ public interface ApiService {
                                      @Field("phone") String phone);
 
     @GET("posts")
-    Call<List<Posts>> getposts(@Query("api_token") String api_token,
+    Call<Posts> getposts(@Query("api_token") String api_token,
                               @Query("page") int page);
 
     @GET("donation-requests")

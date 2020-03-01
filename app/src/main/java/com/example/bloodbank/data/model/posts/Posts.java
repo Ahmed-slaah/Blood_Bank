@@ -12,7 +12,7 @@ public class Posts {
     @SerializedName("msg")
     @Expose
     private String msg;
-    @SerializedName("postsPagination")
+    @SerializedName("data")
     @Expose
     private PostsPagination postsPagination;
 

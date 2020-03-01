@@ -3,4 +3,144 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".view.fragment.homeCycle.ContactUsFragment"/>
+    tools:context=".view.fragment.homeCycle.ContactUsFragment">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/textView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="5dp"
+                android:padding="9dp"
+                android:text="@string/phone_number"
+                android:textColor="@color/purple"
+                android:textSize="25sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/textView2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="5dp"
+                android:drawableEnd="@drawable/ic_local_phone_orange"
+                android:drawablePadding="@dimen/_7sdp"
+                android:padding="12dp"
+                android:textAlignment="textEnd"
+                android:textColor="@color/colorAccent1"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                />
+
+            <TextView
+                android:id="@+id/textView3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="5dp"
+                android:padding="9dp"
+                android:text="@string/E_mail"
+                android:textColor="@color/purple"
+                android:textSize="25sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/textView4"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="5dp"
+                android:drawableEnd="@drawable/ic_email_orange"
+                android:padding="12dp"
+                android:textAlignment="textEnd"
+                android:drawablePadding="@dimen/_7sdp"
+                android:textColor="@color/colorAccent1"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" >
+
+                <LinearLayout
+                    android:layout_width="199dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginStart="5dp"
+                    android:orientation="vertical">
+
+                    <ImageView
+                        android:id="@+id/instaa"
+                        android:layout_width="210dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="5dp"
+
+                        android:src="@drawable/insta" />
+
+                    <ImageView
+                        android:id="@+id/youtupe"
+                        android:layout_width="210dp"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/youtupe" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="5dp"
+                    android:orientation="vertical">
+
+
+                    <ImageView
+                        android:id="@+id/facebook"
+                        android:layout_width="210dp"
+                        android:layout_height="wrap_content"
+
+                        android:src="@drawable/facebook" />
+
+                    <ImageView
+                        android:id="@+id/twitter"
+                        android:layout_width="210dp"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/twitter" />
+
+                </LinearLayout>
+            </LinearLayout>
+            <EditText
+                style="@style/et_style1"
+                android:layout_marginTop="10dp"
+                android:hint="@string/massage_title"
+                android:textColorHint="@color/colorAccent5"
+                />
+
+            <EditText
+                style="@style/et_style1"
+
+                android:layout_width="392dp"
+                android:layout_height="134dp"
+                android:maxLines="100"
+                android:hint="@string/massage_content"
+                android:textColorHint="@color/colorAccent5"
+                />
+
+            <Button
+                android:layout_width="111dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:background="@drawable/dark_red_btn"
+                android:text="@string/send"
+                android:textColor="@color/white"
+                android:textSize="@dimen/_20ssp"
+                android:textStyle="normal"
+                android:layout_marginTop="@dimen/_8sdp"/>
+
+        </LinearLayout>
+    </RelativeLayout>
+</FrameLayout>

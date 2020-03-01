@@ -8,6 +8,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.SearchView;
 import android.widget.Toast;
@@ -56,18 +57,26 @@ public class Home_artical_Fragment extends Fragment {
     private String api_token;
     private int page;
 
-    ArrayList<PostsData> postsData;
-    private articalRecyclerAdapter recycleAdapter;
+    List<PostsData> postsData = new ArrayList<>();
+    public articalRecyclerAdapter recycleAdapter;
+    private LinearLayoutManager mngr;
 
     public Home_artical_Fragment() {
         // Required empty public constructor
     }
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_home_artical_, container, false);
         ButterKnife.bind(this, view);
+        api_token = "Zz9HuAjCY4kw2Ma2XaA6x7T5O3UODws1UakXI9vgFVSoY3xUXYOarHX2VH27";
+
+        mngr = new LinearLayoutManager(getContext());
+        recycleartical.setLayoutManager(mngr);
+        recycleAdapter = new articalRecyclerAdapter(getContext(),postsData);
+        recycleartical.setAdapter(recycleAdapter);
         return view;
     }
 
@@ -78,35 +87,27 @@ public class Home_artical_Fragment extends Fragment {
     }
 
     private void onPosts() {
-
-        getClient().getposts(api_token,page).enqueue(new Callback<List<Posts>>() {
+        getClient().getposts(api_token, page).enqueue(new Callback<Posts>() {
             @Override
-            public void onResponse(Call<List<Posts>> call, Response<List<Posts>> response) {
+            public void onResponse(Call<Posts> call, Response<Posts> response) {
                 try {
-                    if (response.body().get(page).getStatus()==1) {
-                        GridLayoutManager mngr = new GridLayoutManager(getContext(),1);
-                        recycleartical.setLayoutManager(mngr);
-                        recycleAdapter = new articalRecyclerAdapter(getContext());
-                        recycleartical.setAdapter(recycleAdapter);
-                        recycleAdapter.setDataSource(postsData);
-                        recycleAdapter.notifyDataSetChanged();
+                    if (response.body().getStatus() == 1) {
 
-                    }else {
-                        Toast.makeText(getContext(), ""+response.body().get(page).getMsg()+"", Toast.LENGTH_SHORT).show();
+                    } else {
+                        Toast.makeText(getContext(), "" + response.body().getMsg() + "", Toast.LENGTH_SHORT).show();
                     }
-
-                }catch (Exception e){
-                    Toast.makeText(getContext(), ""+e+"", Toast.LENGTH_SHORT).show();
-
+                } catch (Exception e) {
+                    Toast.makeText(getContext(), "" + e + "", Toast.LENGTH_SHORT).show();
                 }
             }
 
             @Override
-            public void onFailure(Call<List<Posts>> call, Throwable t) {
-                Toast.makeText(getContext(),  "  فيليااار"+t+"  ", Toast.LENGTH_SHORT).show();
-
+            public void onFailure(Call<Posts> call, Throwable t) {
+                Toast.makeText(getContext(), "  فيليااار " + t + "  ", Toast.LENGTH_SHORT).show();
             }
         });
+
+
     }
 
     @OnClick(R.id.add)
@@ -116,3 +117,4 @@ public class Home_artical_Fragment extends Fragment {
                 .commit();
     }
 }
+

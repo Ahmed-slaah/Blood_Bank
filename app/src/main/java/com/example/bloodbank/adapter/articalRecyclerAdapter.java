@@ -17,12 +17,15 @@ import com.example.bloodbank.articleData;
 import com.example.bloodbank.data.model.posts.PostsData;
 
 import java.util.ArrayList;
+import java.util.List;
 
-public class articalRecyclerAdapter extends RecyclerView.Adapter <articalRecyclerAdapter.ArticleHolder> {
-        Context context ;
-        ArrayList<PostsData>postsData;
-    public articalRecyclerAdapter(Context c) {
-        this.context=c;
+public class articalRecyclerAdapter extends RecyclerView.Adapter<articalRecyclerAdapter.ArticleHolder> {
+    Context context;
+    List<PostsData> postsData = new ArrayList<>();
+
+    public articalRecyclerAdapter(Context c, List<PostsData> postsData) {
+        this.context = c;
+        this.postsData = postsData;
     }
 
     @NonNull
@@ -36,22 +39,22 @@ public class articalRecyclerAdapter extends RecyclerView.Adapter <articalRecycle
 
     @Override
     public void onBindViewHolder(@NonNull ArticleHolder holder, int position) {
-            holder.title.setText(postsData.get(position).getTitle());
+        holder.title.setText(postsData.get(position).getTitle());
     }
 
     @Override
     public int getItemCount() {
-        return postsData!=null?postsData.size():0;
+        return postsData != null ? postsData.size() : 0;
     }
 
     public void setDataSource(ArrayList<PostsData> postsData) {
-            this.postsData=postsData;
+        this.postsData = postsData;
     }
 
-    class ArticleHolder extends RecyclerView.ViewHolder{
-         CardView cardView ;
-         TextView title ;
-         CheckBox like;
+    class ArticleHolder extends RecyclerView.ViewHolder {
+        CardView cardView;
+        TextView title;
+        CheckBox like;
 
         public ArticleHolder(@NonNull View itemView) {
             super(itemView);

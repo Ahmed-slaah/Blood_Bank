@@ -41,7 +41,7 @@
             android:layout_height="49dp"
             android:layout_marginStart="@dimen/_25sdp"
             android:layout_marginTop="15dp"
-            android:button="@drawable/checkbox_image"
+            android:button="@drawable/like_checkbox_image"
             android:padding="@dimen/_20sdp"
             android:visibility="visible" />
 

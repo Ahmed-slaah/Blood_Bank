@@ -7,6 +7,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.Spinner;
@@ -15,9 +16,11 @@ import android.widget.TextView;
 import androidx.fragment.app.Fragment;
 
 import com.example.bloodbank.R;
+import com.google.android.gms.maps.MapView;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import butterknife.OnClick;
 
 
 /**
@@ -54,6 +57,10 @@ public class NewDonationFragment extends Fragment {
     EditText editText7;
     @BindView(R.id.button)
     Button button;
+    @BindView(R.id.mapView)
+    MapView mapView;
+    @BindView(R.id.new_donation_layout)
+    FrameLayout newDonationLayout;
 
     public NewDonationFragment() {
         // Required empty public constructor
@@ -69,4 +76,7 @@ public class NewDonationFragment extends Fragment {
         return view;
     }
 
+    @OnClick(R.id.button)
+    public void onViewClicked() {
+    }
 }

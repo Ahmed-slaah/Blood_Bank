@@ -1,13 +1,18 @@
 package com.example.bloodbank.view.fragment.loginCycle;
 
 
+import android.app.DatePickerDialog;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.DatePicker;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
@@ -21,10 +26,13 @@ import androidx.fragment.app.Fragment;
 import com.example.bloodbank.R;
 import com.example.bloodbank.adapter.spinnerAdapter;
 
+import java.util.Calendar;
+
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
+import static android.graphics.Color.TRANSPARENT;
 import static com.example.bloodbank.data.api.RetrofitClient.getClient;
 import static com.example.bloodbank.helper.GeneralRequestData.AUTH;
 import static com.example.bloodbank.helper.GeneralRequestData.getspinnerData;
@@ -85,10 +93,13 @@ public class RegisterFragment extends Fragment {
     private String bloodtype;
     private spinnerAdapter bloodtypespinner, gavernmenttypespinner, cityspinner;
     private String governmentid;
-
+    public TextView displayData = null;
+    public static String TAG = null;
+    public DatePickerDialog.OnDateSetListener dateSetListener;
     public RegisterFragment() {
         // Required empty public constructor
     }
+
     ArrayAdapter<String> adapter;
 
     @Override
@@ -129,12 +140,6 @@ public class RegisterFragment extends Fragment {
                 0, getString(R.string.get_government), onGavernmentItemSelected);
     }
 
-    @OnClick(R.id.register_register)
-    public void onViewClicked() {
-        if (Validation()) {
-            getregister();
-        }
-    }
 
     private boolean Validation() {
 
@@ -176,6 +181,53 @@ public class RegisterFragment extends Fragment {
     private void getregister() {
         onAuth((AppCompatActivity) getActivity(), getClient().getRegister(name, Email, birthdate, cityspinner.selected, phone, donationdate, pass, Passconf, bloodtypespinner.selected)
                 , true, AUTH);
+    }
+
+    @OnClick({R.id.register_birthday, R.id.register_lastdate, R.id.register_register})
+    public void onViewClicked(View view) {
+        switch (view.getId()) {
+            case R.id.register_birthday:
+                dataBaker();
+                TAG = "RegisterFragment";
+                registerBirthday.setFocusable(false);
+                displayData=registerBirthday;
+
+                break;
+            case R.id.register_lastdate:
+                registerLastdate.setFocusable(false);
+                dataBaker();
+                displayData=registerLastdate;
+                break;
+            case R.id.register_register:
+                if (Validation()) {
+                    getregister();
+                }
+                break;
+        }
+    }
+
+    protected void dataBaker() {
+
+        Calendar cal = Calendar.getInstance();
+        int year = cal.get(Calendar.YEAR);
+        int month = cal.get(Calendar.MONTH);
+        int day = cal.get(Calendar.DAY_OF_MONTH);
+
+        DatePickerDialog dialog = new DatePickerDialog(
+                getContext(),android.R.style.Theme_Holo_Light_Dialog_MinWidth,dateSetListener,year,month,day);
+        dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+            dialog.show();
+        dateSetListener = new DatePickerDialog.OnDateSetListener() {
+            @Override
+            public void onDateSet(DatePicker view, int year, int month, int day) {
+                month = month+1 ;
+                Log.d(TAG, "onDateSet: yyyy-mm-dd: " + year + "-" + month + "-" + day);
+
+                String date =  year + "-" + month + "-" + day;
+                displayData.setText(date);
+
+            }
+        };
     }
 }
 
